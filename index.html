@@ -1,0 +1,658 @@
+
+<html><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radio Zen - Radios New Age, Lo-Fi e Instrumental</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+   :root {
+      --primary-color: #3a1c71;
+      --secondary-color: #a1ebe5;
+      --tertiary-color: #d0dce5;
+      --background-color: rgba(18, 18, 18, 0.8);
+      --surface-color: rgba(30, 30, 30, 0.9);
+      --on-surface-color: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000000;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Helvetica', 'Arial', sans-serif;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px; /* Espaço entre os elementos */
+    }
+
+    .radio-section {
+      text-align: center;
+      color: #fff;
+      font-size: 24px;
+    }
+
+    .motivational-quote {
+      font-size: 20px;
+      color: #f4f4f4;
+      padding: 20px;
+      background-color: rgba(39, 37, 37, 0.306);
+      border-radius: 15px;
+      width: 300px;
+      font-family: 'Cursive', 'Georgia', serif;
+      line-height: 1.5;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(16, 11, 11, 0.827);
+      z-index: -1;
+    }
+
+    /* Mais estrelas brilhando */
+    body::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      pointer-events: none;
+      z-index: -2;
+      background-image:
+        radial-gradient(2px 2px at 10% 20%, white, transparent),
+        radial-gradient(2px 2px at 20% 30%, white, transparent),
+        radial-gradient(1px 1px at 30% 40%, white, transparent),
+        radial-gradient(2px 2px at 40% 50%, white, transparent),
+        radial-gradient(1px 1px at 50% 60%, white, transparent),
+        radial-gradient(2px 2px at 60% 70%, white, transparent),
+        radial-gradient(2px 2px at 70% 80%, white, transparent),
+        radial-gradient(1px 1px at 80% 90%, white, transparent),
+        radial-gradient(2px 2px at 90% 10%, white, transparent),
+        radial-gradient(1px 1px at 10% 40%, white, transparent),
+        radial-gradient(2px 2px at 15% 65%, white, transparent),
+        radial-gradient(1px 1px at 20% 80%, white, transparent),
+        radial-gradient(2px 2px at 25% 20%, white, transparent),
+        radial-gradient(1px 1px at 30% 35%, white, transparent),
+        radial-gradient(2px 2px at 35% 45%, white, transparent),
+        radial-gradient(1px 1px at 40% 55%, white, transparent),
+        radial-gradient(2px 2px at 45% 65%, white, transparent),
+        radial-gradient(2px 2px at 50% 75%, white, transparent),
+        radial-gradient(1px 1px at 55% 85%, white, transparent),
+        radial-gradient(2px 2px at 60% 95%, white, transparent);
+      animation: twinkle 2s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+      0%, 100% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+
+    /* Estrelas animadas adicionais */
+    .star {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 2px;
+      height: 2px;
+      background-color: white;
+      border-radius: 50%;
+      box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+      animation: twinkleStar 5s infinite ease-in-out;
+    }
+
+    @keyframes twinkleStar {
+      0%, 100% {
+        transform: translateY(0);
+        opacity: 0.5;
+      }
+      50% {
+        transform: translateY(10px);
+        opacity: 1;
+      }
+    }
+  
+    .radio-container {
+      background-color: var(--surface-color);
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.772);
+      width: 100%;
+      max-width: 400px;
+      backdrop-filter: blur(10px);
+    }
+  
+    h1 {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(45deg, var(--secondary-color), var(--tertiary-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  
+    .radio-image {
+      width: 200px;
+      height: 150px;
+      margin: 0 auto 1.5rem;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+  
+    .radio-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+  
+    .radio-image:hover img {
+      transform: scale(1.1);
+    }
+  
+    .controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+  
+    #playPauseBtn {
+      background-color: rgb(6, 154, 159);
+      border: none;
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    #playPauseBtn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(215, 109, 119, 0.7);
+    }
+  
+    .volume-control {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+  
+    #volumeSlider {
+      flex-grow: 1;
+      -webkit-appearance: none;
+      height: 4px;
+      border-radius: 2px;
+      background: #4a4a4a;
+      outline: none;
+      opacity: 0.7;
+      transition: opacity .2s;
+    }
+  
+    #volumeSlider:hover {
+      opacity: 1;
+    }
+  
+    #volumeSlider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--secondary-color);
+      cursor: pointer;
+    }
+  
+    #volumeSlider::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--secondary-color);
+      cursor: pointer;
+    }
+  
+    .volume-icon {
+      color: var(--secondary-color);
+      font-size: 1.2rem;
+      margin-right: 10px;
+    }
+  
+  
+    .social-share {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+  
+    .social-btn {
+      background-color: #333;
+      color: white;
+      border: none;
+      padding: 0.5rem;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+  
+    .social-btn:hover {
+      transform: translateY(-3px);
+    }
+  
+    .facebook:hover {
+      background-color: #1877f2;
+    }
+  
+    .twitter:hover {
+      background-color: #1da1f2;
+    }
+  
+    .instagram:hover {
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    }
+  
+    @keyframes equalizer {
+      0% { height: 5px; }
+      50% { height: 20px; }
+      100% { height: 5px; }
+    }
+  
+    .equalizer {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      height: 30px;
+      margin-bottom: 1rem;
+    }
+  
+    .bar {
+      width: 4px;
+      background-color: var(--secondary-color);
+      margin: 0 2px;
+      animation: equalizer 0.5s infinite;
+    }
+  
+    .bar:nth-child(2) { animation-delay: 0.1s; }
+    .bar:nth-child(3) { animation-delay: 0.2s; }
+    .bar:nth-child(4) { animation-delay: 0.3s; }
+    .bar:nth-child(5) { animation-delay: 0.4s; }
+  
+    .station-select {
+      margin-bottom: 1.5rem;
+    }
+  
+    .station-select select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: rgb(6, 154, 159);
+      color: white;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+  
+    .station-select select:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px var(--secondary-color);
+    }
+  
+    .station-info {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: white;
+    }
+  
+    #stationName {
+      font-weight: bold;
+      color: var(--secondary-color);
+    }
+  
+    .custom-station {
+      margin-bottom: 1.5rem;
+      display: flex;
+      gap: 10px;
+    }
+  
+    .custom-station input {
+      flex-grow: 1;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      background-color: var(--surface-color);
+      color: var(--on-surface-color);
+    }
+  
+    .custom-station button {
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      background-color: var(--primary-color);
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+  
+    .custom-station button:hover {
+      background-color: var(--secondary-color);
+    }
+    
+    
+  </style>
+  </head>
+  <body>
+    <div class="radio-container">
+      <h1>Radio Zen</h1>
+      <div id="canvas-container"></div>
+        <div class="radio-image">
+            <img id="randomImage" alt="Imagem aleatória" width="200" height="200">
+        </div>
+      <div class="station-select">
+        <select id="stationSelector">
+            <option value="https://ice1.somafm.com/deepspaceone-128-mp3">Deep Space One (Ambient)</option>
+            <option value="https://ice1.somafm.com/dronezone-128-mp3">Drone Zone (Ambient)</option>
+            <option value="https://ice1.somafm.com/fluid-128-mp3">Fluid (Instrumental Electronica)</option>
+            <option value="https://ice1.somafm.com/spacestation-128-mp3">Space Station Soma (Ambient)</option>
+            <option value="https://ice1.somafm.com/groovesalad-128-mp3">Groove Salad (Downtempo)</option>
+            <option value="https://ice1.somafm.com/lush-128-mp3">Lush (Mellow Vocals)</option>
+            <option value="https://ice1.somafm.com/beatblender-128-mp3">Beat Blender (Deep House)</option>
+            <option value="https://ice1.somafm.com/defcon-128-mp3">DEF CON Radio (Electronic)</option>
+            <option value="https://ice1.somafm.com/sonicuniverse-128-mp3">Sonic Universe (Jazz)</option>
+            <option value="https://ice1.somafm.com/earwaves-128-mp3">Earwaves (Experimental)</option>
+            <option value="https://ice1.somafm.com/bootliquor-128-mp3">Boot Liquor (Americana)</option>
+            <option value="http://us4.internet-radio.com:8258/stream">Instrumental Day Radio</option>
+            <option value="http://radio.stereoscenic.com/asp-h">Ambient Sleeping Pill (High Quality)</option>
+            <option value="https://centova.svdns.com.br:19373/stream?1728788287925">Radio Gold Instrumental (High Quality)</option>
+            <option value="http://s3.voscast.com:10038/stream">Beautiful Instrumental (High Quality)</option>
+            <option value="https://ec3.yesstreaming.net:3755/stream">LoFi 1 (High Quality)</option>
+            <option value="https://stream.zeno.fm/0r0xa792kwzuv">LoFi 2 (High Quality)</option>
+            <option value="https://live.lofiradio.ru/lofi_mp3_128">LoFi 3 (High Quality)</option>
+            <option value="https://www.antena1.com.br/stream/stream/1;?type=mp4">Antena1 (Anos 1980-2000)</option>
+            <option value="https://canais.esoterica.fm.br/8002/stream/1/">Esotérica Fm (New Age)</option>
+            <option value="http://hydra.cdnstream.com/1822_128">Beautiful Instrumental Channel</option> 
+            <option value="https://radio.streemlion.com:1665/stream?">Beautiful Music</option>
+            <option value="https://radio.chinesemusicworld.com/chinesemusic.mp3">Chinese Music</option>
+            <option value="http://radio.linn.co.uk:8004/autodj">Lynn Classical</option>
+            
+
+        </select>
+    </div>
+
+    <div class="station-info">
+        <p>Estação: <span id="stationName">Deep Space One (Ambient)</span></p>
+    </div>
+    <div class="equalizer">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    <div class="controls">
+        <button id="playPauseBtn"><i class="fas fa-play"></i></button>
+    </div>
+    <div class="volume-control">
+        <i class="fas fa-volume-up volume-icon"></i>
+        <input type="range" min="0" max="100" value="50" id="volumeSlider">
+    </div>
+    
+    <div class="social-share">
+        <button class="social-btn facebook" onclick="shareSong('facebook')"><i class="fab fa-facebook-f"></i></button>
+        <button class="social-btn twitter" onclick="shareSong('twitter')"><i class="fab fa-twitter"></i></button>
+        <button class="social-btn instagram" onclick="shareSong('instagram')"><i class="fab fa-instagram"></i></button>
+    </div>
+</div>
+<div class="star" style="top: 20%; left: 15%;"></div>
+  <div class="star" style="top: 30%; left: 80%;"></div>
+  <div class="star" style="top: 50%; left: 50%;"></div>
+  <div class="star" style="top: 70%; left: 40%;"></div>
+  <div class="star" style="top: 80%; left: 60%;"></div>
+  <div class="star" style="top: 10%; left: 20%;"></div>
+  <div class="star" style="top: 15%; left: 35%;"></div>
+  <div class="star" style="top: 25%; left: 70%;"></div>
+  <div class="star" style="top: 35%; left: 90%;"></div>
+  <div class="star" style="top: 45%; left: 10%;"></div>
+  <div class="star" style="top: 60%; left: 25%;"></div>
+  <div class="star" style="top: 65%; left: 75%;"></div>
+  <div class="star" style="top: 75%; left: 55%;"></div>
+  <div class="star" style="top: 85%; left: 30%;"></div>
+  <div class="star" style="top: 90%; left: 90%;"></div>
+  
+  <div id="quoteDisplay" class="motivational-quote"></div>
+
+  <script>
+    // Lista de 30 frases motivacionais
+    const quotes = [
+      { text: "Acredite em si mesmo e tudo será possível.", author: "– Charles R. Swindoll" },
+      { text: "O único limite para o seu sucesso é a sua mente.", author: "– Tony Robbins" },
+      { text: "Grandes coisas nunca vêm de zonas de conforto.", author: "– Neil Gaiman" },
+      { text: "A persistência é o caminho do êxito.", author: "– Charles Chaplin" },
+      { text: "Cada dia é uma nova chance para alcançar seus sonhos.", author: "– Anônimo" },
+      { text: "O fracasso é uma etapa para o sucesso.", author: "– Anônimo" },
+      { text: "Seja a mudança que você quer ver no mundo.", author: "– Mahatma Gandhi" },
+      { text: "Pequenos passos levam a grandes conquistas.", author: "– Anônimo" },
+      { text: "Você é mais forte do que imagina.", author: "– Anônimo" },
+      { text: "Nunca desista dos seus sonhos, eles são o que te movem.", author: "– Anônimo" },
+      { text: "A jornada é tão importante quanto o destino.", author: "– Anônimo" },
+      { text: "O impossível é apenas uma opinião.", author: "– Paulo Coelho" },
+      { text: "O sucesso começa na disciplina diária.", author: "– Anônimo" },
+      { text: "A vida começa onde termina sua zona de conforto.", author: "– Anônimo" },
+      { text: "Transforme seus problemas em oportunidades.", author: "– Anônimo" },
+      { text: "A força de vontade é o motor que te levará mais longe.", author: "– Anônimo" },
+      { text: "Seu futuro depende do que você faz hoje.", author: "– Anônimo" },
+      { text: "Cada desafio é uma chance de crescer.", author: "– Anônimo" },
+      { text: "Acredite que você pode e já estará no meio do caminho.", author: "– Theodore Roosevelt" },
+      { text: "A sorte favorece os preparados.", author: "– Louis Pasteur" },
+      { text: "A única coisa entre você e seu objetivo é sua determinação.", author: "– Anônimo" },
+      { text: "Seja o autor da sua própria história.", author: "– Anônimo" },
+      { text: "O sucesso é a soma de pequenos esforços repetidos diariamente.", author: "– Anônimo" },
+      { text: "Tenha coragem para começar e força para continuar.", author: "– Anônimo" },
+      { text: "O melhor momento para plantar uma árvore foi há 20 anos. O segundo melhor momento é agora.", author: "– Anônimo" },
+      { text: "Faça do seu medo a sua força.", author: "– Anônimo" },
+      { text: "A vida é 10% o que acontece com você e 90% como você reage.", author: "– Charles R. Swindoll" },
+      { text: "Sonhe grande, trabalhe duro e faça acontecer.", author: "– Anônimo" },
+      { text: "O sucesso não é final, o fracasso não é fatal: o que conta é a coragem de continuar.", author: "– Winston S. Churchill" },
+      { text: "As dificuldades preparam pessoas comuns para destinos extraordinários.", author: "– C.S. Lewis" },
+      { text: "Viva totalmente e aceite a vida como ela é. Somente assim você encontrará a verdadeira liberdade.", author: "– Osho" },
+      { text: "A mente é um círculo, mas o amor é um espelho; quando você ama, você reflete a sua verdadeira essência.", author: "– Osho" },
+      { text: "A vida é um milagre e você deve abraçá-la em toda a sua plenitude.", author: "– Osho" },
+      { text: "O amor é a força mais poderosa do universo; ele transforma tudo o que toca.", author: "– Osho" },
+      { text: "Não tenha medo de ser você mesmo, pois a autenticidade é a chave para a verdadeira felicidade.", author: "– Osho" },
+      { text: "A vida é um jogo; jogue-o com todo o seu coração e faça valer a pena.", author: "– Osho" },
+      { text: "A liberdade é um estado de espírito; não permita que as opiniões dos outros a prendam.", author: "– Osho" },
+      { text: "A felicidade não é algo que você persegue; ela surge quando você vive no presente.", author: "– Osho" },
+      { text: "O que quer que você faça, faça com amor e dedicação; isso traz alegria para a sua vida.", author: "– Osho" },
+      { text: "Seja um sonho e transforme o mundo; cada pensamento é uma semente que pode florescer.", author: "– Osho" },
+      { text: "Quando você aceita a si mesmo, começa a viver; a rejeição é a maior prisão que você pode criar.", author: "– Osho" },
+      { text: "O amor não é apenas um sentimento, é um estado de ser; deixe-o fluir através de você.", author: "– Osho" }
+    ];
+
+
+      // Função para embaralhar a lista de frases
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
+let currentIndex = 0;
+
+// Chama a função para embaralhar as frases antes de usá-las
+shuffleArray(quotes);
+
+function changeQuote() {
+  const quote = quotes[currentIndex];
+  document.getElementById("quoteDisplay").innerHTML = `
+    <div>${quote.text}</div>
+    <div class="author">${quote.author}</div>
+  `;
+  currentIndex = (currentIndex + 1) % quotes.length;
+}
+
+// Mostrar a primeira frase ao carregar a página
+changeQuote();
+
+// Alterar a frase a cada 60 segundos (60000 milissegundos)
+setInterval(changeQuote, 60000);
+
+    
+   const audio = new Audio();
+    let currentStationIndex = 0;
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const volumeSlider = document.getElementById('volumeSlider');
+    const equalizer = document.querySelector('.equalizer');
+    const stationSelector = document.getElementById('stationSelector');
+    const stationName = document.getElementById('stationName');
+
+    let isPlaying = false;
+ 
+    stationSelector.addEventListener('change', (e) => {
+        if (isPlaying) {
+            audio.pause(); // Pausa a rádio atual antes de mudar
+            isPlaying = false;
+            playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+            equalizer.style.display = 'none';
+        }
+        currentStationIndex = e.target.selectedIndex;
+        loadStation();
+    });
+ 
+   
+ 
+    function loadStation() {
+        audio.src = stationSelector.value;
+        stationName.textContent = stationSelector.options[stationSelector.selectedIndex].text;
+        audio.load();
+    }
+ 
+    playPauseBtn.addEventListener('click', () => {
+        if (isPlaying) {
+            audio.pause();
+            playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+            equalizer.style.display = 'none';
+        } else {
+            playAudio();
+            playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            equalizer.style.display = 'flex';
+        }
+        isPlaying = !isPlaying;
+    });
+ 
+    function playAudio() {
+        audio.play().catch(error => {
+            console.error("Erro ao reproduzir o áudio:", error);
+            handlePlayError();
+        });
+    }
+ 
+    function handlePlayError() {
+        alert(`Não foi possível reproduzir a estação ${stationName.textContent}. Tentando a próxima estação.`);
+        currentStationIndex = (currentStationIndex + 1) % stationSelector.options.length;
+        stationSelector.selectedIndex = currentStationIndex;
+        loadStation();
+    }
+ 
+    volumeSlider.addEventListener('input', (e) => {
+        const volume = e.target.value / 100;
+        audio.volume = volume;
+    });
+ 
+
+
+    const radioImages = [
+    '1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg',
+    '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg'
+];
+
+function getRandomImage() {
+    // Gera um índice aleatório com base no número de imagens disponíveis
+    const randomIndex = Math.floor(Math.random() * radioImages.length);
+    return radioImages[randomIndex]; // Retorna o caminho da imagem aleatória
+}
+
+function loadStation() {
+    audio.src = stationSelector.value;
+    stationName.textContent = stationSelector.options[stationSelector.selectedIndex].text;
+
+    // Aqui escolhemos uma imagem aleatória
+    const randomImage = getRandomImage();
+    document.querySelector('.radio-image img').src = randomImage; // Define a imagem aleatória
+
+    audio.load();
+    if (isPlaying) {
+        playAudio();
+    }
+}
+
+    loadStation();
+
+
+
+    // Array com os nomes das imagens
+    const images = [
+        '1.jpg',
+        '2.jpg',
+        '3.jpg',
+        '4.jpg',
+        '5.jpg',
+        '6.jpg',
+        '7.jpg',
+        '8.jpg',
+        '9.jpg',
+        '10.jpg'
+    ];
+
+    stationSelector.addEventListener('change', (e) => {
+            currentStationIndex = e.target.selectedIndex;
+            loadStation();
+            setRandomImage(); // Atualiza a imagem aleatória ao mudar de estação
+        });
+
+        function loadStation() {
+            audio.src = stationSelector.value;
+            stationName.textContent = stationSelector.options[stationSelector.selectedIndex].text;
+            audio.load();
+            if (isPlaying) {
+                playAudio();
+            }
+        }
+
+        // Função para selecionar uma imagem aleatória
+        function setRandomImage() {
+            const randomIndex = Math.floor(Math.random() * images.length);
+            const imgElement = document.getElementById('randomImage');
+            imgElement.src = images[randomIndex]; // Define a imagem aleatória
+        }
+
+        // Chama a função ao carregar a página
+        window.onload = setRandomImage;
+
+        
+</script>
+</body>
+</html>
